@@ -13,3 +13,13 @@
 .NavButton {
     background-color: rgb(51, 102, 255);
 }
+
+.ButtonStyles {
+    width: 100px;
+    border-radius: 25px;
+}
+
+.ContainerSize {
+    height: 400px;
+    background-color: #00ffff;
+}

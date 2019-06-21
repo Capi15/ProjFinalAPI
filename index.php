@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,9 +22,12 @@
         />
         <link rel="stylesheet" href="styles.css" />
     </head>
-    <body>
-        <nav class="navbar mx-auto justify-content-center NavPer">
-            <form class="form-inline" action="">
+    <body> 
+        <nav class="navbar NavPer">
+        </div>
+
+            <form 
+                    id ="btnir" class="form-inline mx-auto justify-content-center" action="">
                 <input
                     id="estiloNavbar"
                     class="form-control mr-sm-2"
@@ -30,18 +37,27 @@
                     aria-label="Search"
                 />
                 <button
-                    class="btn btn-outline-dark my-2 my-sm-0"
+                    class="btn btn-outline-dark my-2 my-sm-0 ButtonStyles"
                     type="submit"
-                    style="border-radius: 25px;"
-                    value="Create"
                 >
                     Pesquisar
                 </button>
             </form>
+
+            <button class="btn btn-outline-dark my-2 my-sm-0 ButtonStyles"
+                    type="submit">
+                    Login
+                </button>
         </nav>
 
-        <div id="test">
-            Olá
+        <div id="firstcontainer"class= "container ContainerSize">
+            <img class="d-block img-fluid mx-auto" src="./octocat/Octocat.png" style="height: 400px">
+        </div>
+        <div class= "container ContainerSize">
+            
+        </div>
+        <div class= "container ContainerSize">
+            
         </div>
 
         <footer class="mt-auto alert-secondary py-3 bottom">
@@ -49,8 +65,6 @@
                 Olá
             </div>
         </footer>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
