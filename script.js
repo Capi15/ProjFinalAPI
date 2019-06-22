@@ -1,5 +1,7 @@
 $("#btnir").submit(clicar);
+
 function clicar(e) {
+    $("#firstcontainer").HTML("");
     console.log("iuiuiu");
     e.preventDefault();
     //var busca = $("#estiloNavbar").val();

@@ -37,32 +37,27 @@ session_start();
                     aria-label="Search"
                 />
                 <button
-                    class="btn btn-outline-dark my-2 my-sm-0 ButtonStyles"
+                    class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
                     type="submit"
                 >
                     Pesquisar
                 </button>
             </form>
 
-            <button class="btn btn-outline-dark my-2 my-sm-0 ButtonStyles"
+            <button class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
                     type="submit">
                     Login
                 </button>
         </nav>
-
+    <section id ="sec">
         <div id="firstcontainer"class= "container ContainerSize">
-            <img class="d-block img-fluid mx-auto" src="./octocat/Octocat.png" style="height: 400px">
-        </div>
-        <div class= "container ContainerSize">
             
         </div>
-        <div class= "container ContainerSize">
-            
-        </div>
-
-        <footer class="mt-auto alert-secondary py-3 bottom">
+        </section>
+        <footer class="mt-auto d-block alert-secondary fixed-bottom py-2 bottom" style="text-align: center;">
             <div class="container-fluid">
-                Olá
+                <p class="nfooter">&copy;Bruno Ribeiro nª21514</p> 
+                 <p class="nfooter">ECGM Tecnologias Web</p>
             </div>
         </footer>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
