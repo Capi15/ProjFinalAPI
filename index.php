@@ -1,7 +1,14 @@
 <?php
+// Inicia a sessão
 session_start();
-
+ 
+// Verifica se o utilizador tem a sessão iniciada, se não envia-o para a página de login
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,9 +51,9 @@ session_start();
                 </button>
             </form>
 
-            <button class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
+            <button href="logout.php" class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
                     type="submit">
-                    Login
+                    Logout
                 </button>
         </nav>
     <section id ="sec">
@@ -56,7 +63,7 @@ session_start();
         </section>
         <footer class="mt-auto d-block alert-secondary fixed-bottom py-2 bottom" style="text-align: center;">
             <div class="container-fluid">
-                <p class="nfooter">&copy;Bruno Ribeiro nª21514</p> 
+                <p class="nfooter">&copy;Bruno Ribeiro nº21514</p> 
                  <p class="nfooter">ECGM Tecnologias Web</p>
             </div>
         </footer>

@@ -1,8 +1,8 @@
 $("#btnir").submit(clicar);
 
 function clicar(e) {
-    $("#firstcontainer").HTML("");
-    console.log("iuiuiu");
+    /*$("#firstcontainer").HTML("");*/
+    /*console.log("iuiuiu");*/
     e.preventDefault();
     //var busca = $("#estiloNavbar").val();
     var busca = $("input#estiloNavbar").val();
@@ -14,11 +14,12 @@ function clicar(e) {
             api_key: "dd9caf2bb711dcb364b85f99d10006bc",
             text: busca,
             extras: "url_m",
-            per_page: "10",
+            per_page: "5",
             page: "1",
             format: "json",
             nojsoncallback: "1"
         },
+
         method: "GET",
         dataType: "JSON",
         success: function(infofotos) {
@@ -49,6 +50,21 @@ function clicar(e) {
             $("#firstcontainer")
                 .append($("<p>").html("info para:" + infometeo.name))
                 .append($("<p>").html(texto));
+        }
+    });
+
+    $.ajax({
+        url: "https://newsapi.org/v2/everything",
+        data: {
+            q: busca,
+            apiKey: "3ea173618fa64bafa48290c8882e39d9",
+            sortBy: "popularity",
+            from: "2019-06-22"
+        },
+        method: "GET",
+        dataType: "JSON",
+        success: function(infonews) {
+            console.log(infonews);
         }
     });
 }

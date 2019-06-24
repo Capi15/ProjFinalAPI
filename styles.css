@@ -1,6 +1,6 @@
 body {
-    background-color: rgba(47, 179, 255, 0.808);
-    /*background-color: rgba(187, 187, 187, 0.808);*/
+    /*background-color: rgba(47, 179, 255, 0.808);*/
+    background-color: rgba(187, 187, 187, 0.808);
 }
 
 #estiloNavbar {
@@ -25,7 +25,7 @@ body {
 }
 
 .ButtonStyles {
-    width: 100px;
+    width: 120px;
     border-radius: 25px;
 }
 
@@ -38,36 +38,16 @@ body {
     height: 5px;
 }
 
-@media screen and (max-width: 300px) {
-    #sec {
-        width: 250;
-        text-align: center;
-    }
+.regis {
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    width: 350px;
+    transform: translateY(50%);
+    border-radius: 20px;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.5), -7px 0 10px rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 450px) {
-    #sec {
-        width: 400;
-        text-align: center;
-    }
-}
-@media screen and (max-width: 600px) {
-    #sec {
-        width: 550;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    #sec {
-        width: 700;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    #sec {
-        width: 850;
-        text-align: center;
-    }
+.Irad {
+    border-radius: 20px;
 }
