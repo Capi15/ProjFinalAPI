@@ -3,7 +3,7 @@
 require_once "config.php";
  
 // Define e inicia as variáveis com um valor vazio("")
-$username = $password = $confirm_password = "";
+$username = $passord = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
 // Processa os dados do formulário quando este é enviado

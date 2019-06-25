@@ -1,12 +1,12 @@
 $("#btnir").submit(clicar);
 
 function clicar(e) {
-    /*$("#firstcontainer").HTML("");*/
     /*console.log("iuiuiu");*/
     e.preventDefault();
     //var busca = $("#estiloNavbar").val();
     var busca = $("input#estiloNavbar").val();
     console.log(busca);
+    $("#firstcontainer").html("");
     $.ajax({
         url: "https://www.flickr.com/services/rest/",
         data: {
@@ -24,9 +24,27 @@ function clicar(e) {
         dataType: "JSON",
         success: function(infofotos) {
             console.log(infofotos);
-            infofotos.photos.photo.forEach(foto => {
-                var foto = $("<img>").attr("src", foto.url_m);
-                $("#firstcontainer").append(foto);
+            infofotos.photos.photo.forEach((foto, i) => {
+                if (i % 4 === 0) {
+                    $("#firstcontainer").append(`<div class="row p-3"></div>`);
+                }
+
+                $("#firstcontainer")
+                    .children(".row")
+                    .last().append(`
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card" >
+                        <img class="card-img-top image-fluid" style="heigth: auto" src="${
+                            foto.url_m
+                        }">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    </div>
+                `);
             });
         }
     });
@@ -48,7 +66,7 @@ function clicar(e) {
                 " a temperatura atual é: " +
                 infometeo.main.temp;
             $("#firstcontainer")
-                .append($("<p>").html("info para:" + infometeo.name))
+                .append($("<p>").html("Pesquisa para " + infometeo.name + ":"))
                 .append($("<p>").html(texto));
         }
     });
@@ -65,6 +83,14 @@ function clicar(e) {
         dataType: "JSON",
         success: function(infonews) {
             console.log(infonews);
+            for (let i = 0; i <= infonews.articles.lenght; i++) {
+                var text = infonews.articles[i];
+                $("#firstcontainer").append(
+                    $("<p>")
+                        .html(text)
+                        .val()
+                );
+            }
         }
     });
 }

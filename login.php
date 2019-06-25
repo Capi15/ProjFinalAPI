@@ -4,7 +4,7 @@ session_start();
  
 // Verifica se o utilizador tem sessão iniciada, e se sim redireciona-o para a página inicial
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: index.php");
     exit;
 }
  

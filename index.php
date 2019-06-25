@@ -51,17 +51,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </button>
             </form>
 
-            <button href="logout.php" class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
+            <a href="logout.php"
+                    >
+                    <button class="btn btn-outline-light my-2 my-sm-0 ButtonStyles"
                     type="submit">
                     Logout
                 </button>
+                   
+                </a>
         </nav>
     <section id ="sec">
-        <div id="firstcontainer"class= "container ContainerSize">
-            
+        <div id="firstcontainer"class= "ContainerSize">
+        </div>
         </div>
         </section>
-        <footer class="mt-auto d-block alert-secondary fixed-bottom py-2 bottom" style="text-align: center;">
+        <footer class="mt-auto d-block alert-secondary py-2 bottom" style="text-align: center; position: relative; bottom: 0;">
             <div class="container-fluid">
                 <p class="nfooter">&copy;Bruno Ribeiro nº21514</p> 
                  <p class="nfooter">ECGM Tecnologias Web</p>
