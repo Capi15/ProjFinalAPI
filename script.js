@@ -35,7 +35,9 @@ function clicar(e) {
                 )
                 .append(
                     $("<p>").html(
-                        texto.charAt(0).toUpperCase() + texto.slice(1)
+                        `<h3>${texto.charAt(0).toUpperCase()}${texto.slice(
+                            1
+                        )}</h3>`
                     )
                 );
         }
@@ -99,14 +101,20 @@ function clicar(e) {
                     .last()
                     .append(
                         `<div class="col-lg-2 col-md-3 col-sm-4">
-        <div class="card" style="height: 100%;">
-            <img class="card-img-top image-fluid" src="${fotos.url_m}">
-            <div class="card-body">
-                <h5 class="card-title">${noticias.title}</h5>
-                <p class="card-text">${noticias.description}</p>
-            </div>
-        </div>
-        </div>`
+                            <div class="card" style="height: 100%;">
+                                <img class="card-img-top image-fluid" src="${
+                                    fotos.url_m
+                                }">
+                                <div class="card-body">
+                                    <h5 class="card-title">${
+                                        noticias.title
+                                    }</h5>
+                                    <p class="card-text">${
+                                        noticias.description
+                                    }</p>
+                                </div>
+                            </div>
+                        </div>`
                     );
             }
         }

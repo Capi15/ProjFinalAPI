@@ -10,7 +10,7 @@ body {
 
 #sec {
     background: white;
-    height: 750px;
+    height: auto;
     width: auto;
     margin: 100px;
     border-radius: 20px;

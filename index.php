@@ -40,7 +40,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     class="form-control mr-sm-2"
                     type="search"
                     value=""
-                    placeholder="Digite algo"
+                    placeholder="Digite o nome de uma cidade"
                     aria-label="Search"
                 />
                 <button
@@ -61,6 +61,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 </a>
         </nav>
     <section id ="sec" style ="text-align: center;">
+        <p style ="height: 750px;"></p>
         </section>
         <footer class="mt-auto d-block alert-secondary py-2 fixed-bottom mt-5" style="text-align: center;">
             <div class="container-fluid">
