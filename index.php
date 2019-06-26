@@ -60,12 +60,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                    
                 </a>
         </nav>
-    <section id ="sec">
-        <div id="firstcontainer"class= "ContainerSize">
-        </div>
-        </div>
+    <section id ="sec" style ="text-align: center;">
         </section>
-        <footer class="mt-auto d-block alert-secondary py-2 bottom" style="text-align: center; position: relative; bottom: 0;">
+        <footer class="mt-auto d-block alert-secondary py-2 fixed-bottom mt-5" style="text-align: center;">
             <div class="container-fluid">
                 <p class="nfooter">&copy;Bruno Ribeiro nº21514</p> 
                  <p class="nfooter">ECGM Tecnologias Web</p>

@@ -1,59 +1,20 @@
 $("#btnir").submit(clicar);
 
 function clicar(e) {
+    var fotos;
+    var noticias;
+
     /*console.log("iuiuiu");*/
     e.preventDefault();
     //var busca = $("#estiloNavbar").val();
     var busca = $("input#estiloNavbar").val();
     console.log(busca);
-    $("#firstcontainer").html("");
-    $.ajax({
-        url: "https://www.flickr.com/services/rest/",
-        data: {
-            method: "flickr.photos.search",
-            api_key: "dd9caf2bb711dcb364b85f99d10006bc",
-            text: busca,
-            extras: "url_m",
-            per_page: "5",
-            page: "1",
-            format: "json",
-            nojsoncallback: "1"
-        },
-
-        method: "GET",
-        dataType: "JSON",
-        success: function(infofotos) {
-            console.log(infofotos);
-            infofotos.photos.photo.forEach((foto, i) => {
-                if (i % 4 === 0) {
-                    $("#firstcontainer").append(`<div class="row p-3"></div>`);
-                }
-
-                $("#firstcontainer")
-                    .children(".row")
-                    .last().append(`
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card" >
-                        <img class="card-img-top image-fluid" style="heigth: auto" src="${
-                            foto.url_m
-                        }">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    </div>
-                `);
-            });
-        }
-    });
-
+    $("#sec").html("");
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather",
         data: {
             q: busca,
-            appid: "fa454439b36b644d49e751a9b0afbcfc",
+            appid: "9a7d023c298da7e4d3b4366b1f12c5dc",
             units: "metric",
             lang: "pt"
         },
@@ -64,32 +25,89 @@ function clicar(e) {
             var texto =
                 infometeo.weather[0].description +
                 " a temperatura atual é: " +
-                infometeo.main.temp;
-            $("#firstcontainer")
-                .append($("<p>").html("Pesquisa para " + infometeo.name + ":"))
-                .append($("<p>").html(texto));
+                infometeo.main.temp +
+                "ºC";
+            $("#sec")
+                .append(
+                    $("<p>").html(
+                        "<h1>Pesquisa para " + infometeo.name + ":</h1>"
+                    )
+                )
+                .append(
+                    $("<p>").html(
+                        texto.charAt(0).toUpperCase() + texto.slice(1)
+                    )
+                );
         }
     });
 
     $.ajax({
-        url: "https://newsapi.org/v2/everything",
+        url: "https://www.flickr.com/services/rest/",
         data: {
-            q: busca,
-            apiKey: "3ea173618fa64bafa48290c8882e39d9",
-            sortBy: "popularity",
-            from: "2019-06-22"
+            method: "flickr.photos.search",
+            api_key: "dd9caf2bb711dcb364b85f99d10006bc",
+            text: busca,
+            extras: "url_m",
+            per_page: "12",
+            page: "1",
+            format: "json",
+            nojsoncallback: "1"
         },
+
         method: "GET",
         dataType: "JSON",
-        success: function(infonews) {
-            console.log(infonews);
-            for (let i = 0; i <= infonews.articles.lenght; i++) {
-                var text = infonews.articles[i];
-                $("#firstcontainer").append(
-                    $("<p>")
-                        .html(text)
-                        .val()
-                );
+        success: function(infofotos) {
+            console.log(infofotos);
+
+            $.ajax({
+                url: "https://newsapi.org/v2/everything",
+                data: {
+                    q: busca,
+                    apiKey: "3ea173618fa64bafa48290c8882e39d9",
+                    sortBy: "popularity",
+                    from: "2019-06-22"
+                },
+                method: "GET",
+                dataType: "JSON",
+                success: function(infonews) {
+                    console.log(infonews);
+                    noticias = infonews;
+
+                    infonews.articles.forEach((ele, i) => {
+                        cardP(
+                            infofotos.photos.photo[
+                                Math.floor(
+                                    Math.random() *
+                                        infofotos.photos.photo.length
+                                )
+                            ],
+                            ele,
+                            i
+                        );
+                    });
+                }
+            });
+            console.log(fotos);
+            console.log(noticias);
+
+            function cardP(fotos, noticias, i) {
+                if (i % 6 === 0) {
+                    $("#sec").append(`<div class="row p-3"></div>`);
+                }
+                $("#sec")
+                    .children(".row")
+                    .last()
+                    .append(
+                        `<div class="col-lg-2 col-md-3 col-sm-4">
+        <div class="card" style="height: 100%;">
+            <img class="card-img-top image-fluid" src="${fotos.url_m}">
+            <div class="card-body">
+                <h5 class="card-title">${noticias.title}</h5>
+                <p class="card-text">${noticias.description}</p>
+            </div>
+        </div>
+        </div>`
+                    );
             }
         }
     });
